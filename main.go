@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/binary"
-	"log"
 	"net"
 	"time"
 
@@ -203,12 +202,6 @@ func Hosts(cidr string) ([]net.IP, error) {
 		// convert back to net.IP
 		ip := make(net.IP, 4)
 		binary.BigEndian.PutUint32(ip, i)
-
-		log.Println(ip.String())
-		log.Println(ip.DefaultMask())
-		log.Println(ip.IsLoopback())
-		log.Println(ip.IsGlobalUnicast())
-		log.Println(ip.IsMulticast())
 
 		ips = append(ips, ip)
 	}
